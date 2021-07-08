@@ -1,28 +1,41 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <body>
+    <Header />
+    <News v-bind:articles="articles"/>
+    <Point />
+    <Sorting v-bind:blocks="blocks"/>
+  </body>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header.vue'
+import News from './components/News.vue'
+import data from '@/data/data.json'
+import Point from '@/components/Point.vue'
+import Sorting from '@/components/Sorting.vue'
+import items from '@/data/items'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Header,
+    News,
+    Point, 
+    Sorting
+  },
+  data(){
+    return{
+      articles: data,
+      blocks: items
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body{
+  background: #F4F4F4;
+  margin: 0;
+  padding: 0;
 }
 </style>
